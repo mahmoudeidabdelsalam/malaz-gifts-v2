@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --color-cream: #fffaf1;
+  --color-plum: #52273f;
+  --color-muted: #806774;
+  --color-pink: #f7c8d6;
+  --color-yellow: #f9df73;
+  --color-blue: #e4edf3;
+  --font-sans: 'Cairo', sans-serif;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+  body { background: #fffaf1; color: #52273f; font-family: 'Cairo', sans-serif; }
+  button, a { -webkit-tap-highlight-color: transparent; }
+  button { cursor: pointer; }
+  ::selection { background: #f9df73; color: #52273f; }
+  :where(a, button, input, select, textarea, summary, [role='button'], [role='tab']):focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
