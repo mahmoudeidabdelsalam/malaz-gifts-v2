@@ -1,0 +1,19 @@
+Create a 4-page children's comic book sheet in a single tall PNG layout, divided into a 2x2 grid of 4 distinct comic pages separated by clear black lines.
+
+Visual Style & Character Rule:
+- Cute, clean children's comic illustration style with bold black outlines, vibrant colors, and expressive body language.
+- CRITICAL: The main hero character MUST have a completely blank, solid white face (no eyes, no nose, no mouth, no eyebrows) in EVERY single panel so a child's face can be added later. Keep hair/helmet/headgear appropriate to the profession while keeping the face oval completely blank white.
+- All speech bubbles, titles, and page labels must be written in clear, natural Arabic.
+
+Profession Customization:
+- Profession: طبيب
+- Hero Outfit & Gear: معطف طبيب أبيض وسماعة طبية
+- Main Vehicle/Setting: سيارة إسعاف ومستشفى
+
+4-Page Structure:
+- Top-Left (Page 1 - صفحة 1): "[عنوان المهمة الأولى]" — 6 small panels showing the hero getting the call, getting ready, heading out in the vehicle, and arriving at the scene.
+- Top-Right (Page 2 - صفحة 2): "[عنوان إنقاذ/مساعدة حالة بسيطة]" — 6 small panels showing the hero helping a child/person in a simple, friendly situation with happy ending speech bubbles.
+- Bottom-Left (Page 3 - صفحة 3): "[عنوان التعامل مع تحدٍ أكبر]" — 6 small panels showing teamwork and solving a bigger challenge step by step until success.
+- Bottom-Right (Page 4 - صفحة 4): "[عنوان الاحتفال بالبطل]" — panels showing people celebrating the hero, saying goodbye/returning to base, and a final panel saying "أنت بطلنا الحقيقي، [الاسم]!" with the hero's face still blank white.
+
+Ensure crisp Arabic text, clean panel borders, no watermarks, and consistent character outfit across all 24 panels.

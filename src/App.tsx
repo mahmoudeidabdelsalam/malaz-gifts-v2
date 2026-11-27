@@ -2,13 +2,16 @@
 
 import { useState, type ReactNode } from 'react'
 import KidsWorld from './components/KidsWorld'
+import ComicCreator from './components/ComicCreator'
 
 const whatsapp = 'https://wa.me/@ayamagdy93'
 const facebook = 'https://www.facebook.com/share/1GA6oKPgUd/'
 const nav = [
-  ['الرئيسية', '#home'], ['التشكيلات', '#collections'], ['كتب التلوين', '#coloring'],
+  ['التشكيلات', '#collections'], ['كتب التلوين', '#coloring'], ['أنا بطل القصة', '#comic'],
   ['للمدارس', '#school'], ['ألعاب الأطفال', '#games'], ['حكاية ملاذ', '#story'],
 ]
+const desktopNavRight = nav.slice(0, 3)
+const desktopNavLeft = nav.slice(3)
 const shell = 'mx-auto w-full max-w-[1440px] px-6 sm:px-10 lg:px-20'
 const heading = 'text-[28px] font-extrabold leading-[1.45] md:text-4xl'
 
@@ -105,12 +108,13 @@ export default function App() {
     <div className="creative-background" aria-hidden="true"><span className="creative-orb creative-orb-one" /><span className="creative-orb creative-orb-two" /></div>
     <div className="site-content">
     <header className={`site-header ${shell}`}>
-      <div className="flex min-h-[104px] items-center justify-between gap-5 border-b border-plum/70">
-        <a href="#home" aria-label="ملاذ — الرئيسية" className="brand shrink-0 leading-none"><img src="/logo.png" alt="شعار ملاذ" className="h-[76px] w-[76px] object-contain" /></a>
-        <nav aria-label="التنقل الرئيسي" className="hidden items-center gap-5 text-base font-bold lg:flex">{nav.map(([text, href]) => <a className="py-3 transition-colors hover:text-[#a14e71]" key={href} href={href}>{text}</a>)}</nav>
-        <button onClick={() => setMenu(!menu)} aria-expanded={menu} aria-controls="mobile-nav" aria-label={menu ? 'إغلاق القائمة' : 'فتح القائمة'} className="menu-toggle rounded-sm border border-plum lg:hidden"><span className={menu ? 'is-open' : ''}><i /><i /><i /></span></button>
+      <div className="site-header-row grid min-h-[104px] grid-cols-[1fr_auto_1fr] items-center gap-5 border-b border-plum/70">
+        <nav aria-label="التنقل الرئيسي يمين الشعار" className="hidden items-center justify-end gap-5 text-base font-bold md:flex">{desktopNavRight.map(([text, href]) => <a className="py-3 transition-colors hover:text-[#a14e71]" key={href} href={href}>{text}</a>)}</nav>
+        <a href="#home" aria-label="ملاذ — الرئيسية" className="brand justify-self-center leading-none"><img src="/logo.png" alt="شعار ملاذ" className="h-[92px] w-[92px] object-contain" /></a>
+        <nav aria-label="التنقل الرئيسي يسار الشعار" className="hidden items-center justify-start gap-5 text-base font-bold md:flex">{desktopNavLeft.map(([text, href]) => <a className="py-3 transition-colors hover:text-[#a14e71]" key={href} href={href}>{text}</a>)}</nav>
+        <button onClick={() => setMenu(!menu)} aria-expanded={menu} aria-controls="mobile-nav" aria-label={menu ? 'إغلاق القائمة' : 'فتح القائمة'} className="menu-toggle rounded-sm border border-plum grid md:hidden"><span className={menu ? 'is-open' : ''}><i /><i /><i /></span></button>
       </div>
-      {menu && <nav id="mobile-nav" aria-label="قائمة الموبايل" className="grid gap-1 border-b border-plum py-4 lg:hidden">{nav.map(([text,href]) => <a key={href} href={href} onClick={() => setMenu(false)} className="min-h-11 rounded-lg px-3 py-3 font-bold hover:bg-pink">{text}</a>)}</nav>}
+      {menu && <nav id="mobile-nav" aria-label="قائمة الموبايل" className="grid gap-1 border-b border-plum py-4 md:hidden">{nav.map(([text,href]) => <a key={href} href={href} onClick={() => setMenu(false)} className="min-h-11 rounded-lg px-3 py-3 font-bold hover:bg-pink">{text}</a>)}</nav>}
     </header>
     <main>
       <section className={`${shell} reveal-section grid items-center gap-6 pt-12 pb-14 md:min-h-[690px] md:grid-cols-2 md:gap-8 md:pt-10 md:pb-16`}>
@@ -145,6 +149,7 @@ export default function App() {
         <div className="pattern-card relative mx-auto h-[290px] lg:h-[460px] w-full max-w-[520px] rounded-[12px] bg-pink"><Photo src="/images/image-5.jpg" alt="أدوات مدرسية مخصصة باسم وصورة الطفل من ملاذ" className="absolute top-0 left-[12%] h-[230px] lg:h-[350px] w-[45%] -rotate-[8deg] rounded-sm border border-plum object-contain" /><Photo src="/images/image-10.jpg" alt="كراسة تلوين شخصية للأطفال" className="absolute top-6 right-[12%] h-[240px] lg:h-[370px] w-[50%] rotate-[8deg] rounded-sm border border-plum object-contain" /><span className="absolute bottom-5 left-1/2 w-max max-w-[90%] -translate-x-1/2 -rotate-[4deg] rounded-lg bg-yellow px-7 py-4 text-lg font-bold">اسم طفلك… بيفرّق ♡</span></div>
       </section>
       <KidsWorld />
+      <ComicCreator />
       <section id="story" className={`${shell} reveal-section pt-5 pb-16`}>
         <h2 className={`${heading} text-center md:text-[34px]`}>من فكرة في بالك… لفرحة بين إيديكي</h2>
         <div className="mt-10 grid gap-7 md:grid-cols-3">{[
@@ -157,7 +162,7 @@ export default function App() {
         <h2 className={heading}>عندك مناسبة؟ ولا نفسك تفرّحي حد وخلاص؟</h2><p className="mt-5 text-lg">احكي لنا فكرتك… ونحوّلها سوا لهدية ليها حكاية.</p><Button className="mt-7">ابدئي الحكاية على واتساب ←</Button><p className="mt-8 text-[15px] font-bold leading-8">عيد ميلاد &nbsp;·&nbsp; خطوبة وزفاف &nbsp;·&nbsp; تخرج ونجاح &nbsp;·&nbsp; مولود جديد &nbsp;·&nbsp; شكر وتقدير</p>
       </section>
     </main>
-    <footer className="bg-plum text-cream"><div className={`${shell} pt-8 pb-6`}><div className="grid gap-8 pb-8 md:grid-cols-[1fr_1.5fr_1fr]"><div><a href="#home" className="text-[38px] font-extrabold">ملاذ</a><p className="mt-2">هدايا وحكايات، معمولة بحب.</p></div><nav aria-label="روابط أسفل الصفحة" className="flex flex-wrap items-start gap-x-5 gap-y-2 pt-4 text-[15px] font-bold">{nav.slice(1).map(([t,h]) => <a key={h} href={h} className="py-3 hover:underline">{t}</a>)}</nav><div className="md:text-left"><h3 className="pt-3 text-lg font-bold">خلّينا على تواصل</h3><div className="mt-3 flex gap-3 text-sm md:justify-end"><a href={whatsapp} target="_blank" rel="noreferrer" className="py-3 hover:underline">واتساب</a><span className="py-3">/</span><a href={facebook} target="_blank" rel="noreferrer" className="py-3 hover:underline">جروب فيسبوك</a></div></div></div><div className="flex flex-wrap justify-between gap-4 border-t border-[#8e647d] pt-6 text-sm"><p>© {new Date().getFullYear()} ملاذ للهدايا — جميع الحقوق محفوظة.</p><p>فرحة صغيرة… أثر كبير ♡</p></div></div></footer>
+    <footer className="bg-plum text-cream"><div className={`${shell} pt-8 pb-6`}><div className="grid gap-8 pb-8 md:grid-cols-[1fr_1.5fr_1fr]"><div><a href="#home" className="text-[38px] font-extrabold">ملاذ</a><p className="mt-2">هدايا وحكايات، معمولة بحب.</p></div><nav aria-label="روابط أسفل الصفحة" className="flex flex-wrap items-start gap-x-5 gap-y-2 pt-4 text-[15px] font-bold">{nav.map(([t,h]) => <a key={h} href={h} className="py-3 hover:underline">{t}</a>)}</nav><div className="md:text-left"><h3 className="pt-3 text-lg font-bold">خلّينا على تواصل</h3><div className="mt-3 flex gap-3 text-sm md:justify-end"><a href={whatsapp} target="_blank" rel="noreferrer" className="py-3 hover:underline">واتساب</a><span className="py-3">/</span><a href={facebook} target="_blank" rel="noreferrer" className="py-3 hover:underline">جروب فيسبوك</a></div></div></div><div className="flex flex-wrap justify-between gap-4 border-t border-[#8e647d] pt-6 text-sm"><p>© {new Date().getFullYear()} ملاذ للهدايا — جميع الحقوق محفوظة.</p><p>فرحة صغيرة… أثر كبير ♡</p></div></div></footer>
     </div>
     <ChatWidget />
   </div>
